@@ -23,4 +23,5 @@ public class UserServiceImplTest {
         assertThat(response.getMessage()).isEqualTo("Registration successfully");
     }
 
+
 }

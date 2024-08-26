@@ -5,4 +5,5 @@ import africa.semicolon.com.registerAndLoginApp.dtos.response.RegisterUserRespon
 
 public interface UserService {
     RegisterUserResponse registerUser(RegisterUserRequest registerUserRequest);
+
 }

@@ -18,15 +18,17 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public RegisterUserResponse registerUser(RegisterUserRequest registerUserRequest) {
-//        String email = registerUserRequest.getEmail();
-//        validate(email);
-//        validateRegistration(registerUserRequest);
+        String email = registerUserRequest.getEmail();
+        validate(email);
+        validateRegistration(registerUserRequest);
         User user = modelMapper.map(registerUserRequest, User.class);
         var savedUser = userRepository.save(user);
         var response = modelMapper.map(savedUser, RegisterUserResponse.class);
         response.setMessage("Registration successfully");
         return response;
     }
+
+
 
     private void validate (String email){
         for (User user : userRepository.findAll()) {

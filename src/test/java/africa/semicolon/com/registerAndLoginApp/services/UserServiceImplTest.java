@@ -22,6 +22,15 @@ public class UserServiceImplTest {
         assertThat(response).isNotNull();
         assertThat(response.getMessage()).isEqualTo("Registration successfully");
     }
+    public void loginUserTest(){
+        registerUserTest();
+        LoginUserRequest loginUserRequest = new LoginUserRequest();
+        loginUserRequest.setUsername("bimbim@gmail.com");
+        loginUserRequest.setPassword("1254");
+        LoginUserResponse loginUserResponse = userService.loginUser(loginUserRequest);
+        assertThat(loginUserResponse).isNotNull();
+        assertThat(loginUserResponse.getMessage()).contains("Successful");
+    }
 
 
 }

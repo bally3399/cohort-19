@@ -28,6 +28,18 @@ public class UserServiceImpl implements UserService{
         return response;
     }
 
+    @Override
+    public LoginUserResponse loginUser(LoginUserRequest loginUserRequest) {
+        validateLogin(loginUserRequest);
+        User user = userRepository.findByEmail(loginUserRequest.getUsername());
+        modelMapper.map(loginUserRequest, User.class);
+        if(user.getEmail() != null) {
+            user.setLoggedIn(true);
+        }
+        LoginUserResponse response = new LoginUserResponse();
+        response.setMessage("User logged in Successful");
+        return response;
+    }
 
 
     private void validate (String email){
@@ -41,6 +53,10 @@ public class UserServiceImpl implements UserService{
         if (!request.getEmail().matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$"))
             throw new UserAlreadyExistException("Invalid Input");
         if (request.getPassword().isEmpty())
+            throw new IncorrectPasswordException("Invalid Password provide a Password");
+    }
+    private static void validateLogin(LoginUserRequest loginUserRequest) {
+        if (loginUserRequest.getPassword().isEmpty())
             throw new IncorrectPasswordException("Invalid Password provide a Password");
     }
 }

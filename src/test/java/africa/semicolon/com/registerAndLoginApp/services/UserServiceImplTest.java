@@ -32,4 +32,5 @@ public class UserServiceImplTest {
         assertThat(loginUserResponse.getMessage()).contains("Successful");
     }
 
+
 }

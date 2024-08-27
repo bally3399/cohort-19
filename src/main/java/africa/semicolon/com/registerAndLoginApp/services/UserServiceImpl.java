@@ -2,7 +2,9 @@ package africa.semicolon.com.registerAndLoginApp.services;
 
 import africa.semicolon.com.registerAndLoginApp.data.models.User;
 import africa.semicolon.com.registerAndLoginApp.data.repository.UserRepository;
+import africa.semicolon.com.registerAndLoginApp.dtos.request.LoginUserRequest;
 import africa.semicolon.com.registerAndLoginApp.dtos.request.RegisterUserRequest;
+import africa.semicolon.com.registerAndLoginApp.dtos.response.LoginUserResponse;
 import africa.semicolon.com.registerAndLoginApp.dtos.response.RegisterUserResponse;
 import africa.semicolon.com.registerAndLoginApp.exceptions.IncorrectPasswordException;
 import africa.semicolon.com.registerAndLoginApp.exceptions.UserAlreadyExistException;

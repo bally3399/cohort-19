@@ -11,14 +11,17 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 public class UserServiceImplTest {
+    public void setUp(){
+        userService.deleteAll();
+    }
     @Autowired
     private UserService userService;
     @Test
     public void registerUserTest() {
         RegisterUserRequest registerUserRequest = new RegisterUserRequest();
         registerUserRequest.setFirstName("Baliqis");
-        registerUserRequest.setLastName("Bimbim");
-        registerUserRequest.setEmail("bimbim@gmail.com");
+        registerUserRequest.setLastName("Bimbim99");
+        registerUserRequest.setEmail("bimbim3@gmail.com");
         registerUserRequest.setPassword("1254");
         RegisterUserResponse response = userService.registerUser(registerUserRequest);
         assertThat(response).isNotNull();
@@ -26,7 +29,12 @@ public class UserServiceImplTest {
     }
     @Test
     public void loginUserTest(){
-        registerUserTest();
+        RegisterUserRequest registerUserRequest = new RegisterUserRequest();
+        registerUserRequest.setFirstName("Baliqis");
+        registerUserRequest.setLastName("Bimbim");
+        registerUserRequest.setEmail("bimbim@gmail.com");
+        registerUserRequest.setPassword("1254");
+        userService.registerUser(registerUserRequest);
         LoginUserRequest loginUserRequest = new LoginUserRequest();
         loginUserRequest.setUsername("bimbim@gmail.com");
         loginUserRequest.setPassword("1254");

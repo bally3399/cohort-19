@@ -9,4 +9,6 @@ public interface UserService {
     RegisterUserResponse registerUser(RegisterUserRequest registerUserRequest);
 
     LoginUserResponse loginUser(LoginUserRequest loginUserRequest);
+
+    void deleteAll();
 }

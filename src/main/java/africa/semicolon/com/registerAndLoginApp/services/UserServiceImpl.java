@@ -24,8 +24,8 @@ public class UserServiceImpl implements UserService{
         validate(email);
         validateRegistration(registerUserRequest);
         User user = modelMapper.map(registerUserRequest, User.class);
-        var savedUser = userRepository.save(user);
-        var response = modelMapper.map(savedUser, RegisterUserResponse.class);
+        user = userRepository.save(user);
+        var response = modelMapper.map(user, RegisterUserResponse.class);
         response.setMessage("Registration successfully");
         return response;
     }
@@ -41,6 +41,11 @@ public class UserServiceImpl implements UserService{
         LoginUserResponse response = new LoginUserResponse();
         response.setMessage("User logged in Successful");
         return response;
+    }
+
+    @Override
+    public void deleteAll() {
+        userRepository.deleteAll();
     }
 
 

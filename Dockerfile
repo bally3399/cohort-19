@@ -3,6 +3,6 @@ COPY . .
 RUN mvn -B clean package -DskipTests
 
 FROM openjdk:17
-COPY --from=build target/*.jar registerandloginapp.jar
+COPY --from=build target/*.jar RegisterAndLoginApp.jar
 
-ENTRYPOINT ["java", "-jar", "-Dserver.port=8080", "registerandloginapp.jar"]
+ENTRYPOINT ["java", "-jar", "-Dserver.port=8080", "RegisterAndLoginApp.jar"]

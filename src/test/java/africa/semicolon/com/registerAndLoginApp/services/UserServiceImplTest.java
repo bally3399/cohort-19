@@ -24,6 +24,7 @@ public class UserServiceImplTest {
         assertThat(response).isNotNull();
         assertThat(response.getMessage()).isEqualTo("Registration successfully");
     }
+    @Test
     public void loginUserTest(){
         registerUserTest();
         LoginUserRequest loginUserRequest = new LoginUserRequest();

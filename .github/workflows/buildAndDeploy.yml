@@ -36,7 +36,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t baliqis/RegisterAndLoginApp:latest .
+        run: docker build -t baliqis/registerandloginapp:latest .
 
       - name: Push Docker image to Docker Hub
-        run: docker push baliqis/RegisterAndLoginApp:latest
+        run: docker push baliqis/registerandloginapp:latest
